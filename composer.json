@@ -1,0 +1,21 @@
+{
+  "name": "asg/libstemmer_php",
+  "description": "PHP Stemming Library",
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": ">=5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Asg\\" : "src/Asg/"
+    }
+
+  },
+  "authors": [
+    {
+      "name": "Abed Ghazaleh",
+      "email": "abed.gh@gmail.com"
+    }
+  ]
+}
