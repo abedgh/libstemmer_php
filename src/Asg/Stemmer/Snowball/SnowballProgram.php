@@ -1,9 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: abed
+ * User: Abed Ghazaleh
+ * Email : abed.gh@gmail.com
  * Date: 12/6/16
  * Time: 5:52 PM
+ *
  */
 
 namespace Asg\Stemmer\Snowball;
@@ -15,6 +17,13 @@ use Asg\Stemmer\Snowball\Exceptions\IllegalAccessException;
 
 class SnowballProgram
 {
+    /**
+     * PHP Snowball version.
+     *
+     * @var string
+     */
+    const VERSION = '1.0';
+
     // current string
     /**
      * @var StringBuffer
@@ -165,7 +174,8 @@ class SnowballProgram
     }
 
     /**
-     * @param CharSequence $s //CharSequence Interface
+     * @todo list:need to fix the CharSequence
+     * @param string|CharSequence $s //CharSequence Interface
      * @return bool;
      */
     protected function eq_s(CharSequence $s)
@@ -180,7 +190,8 @@ class SnowballProgram
     }
 
     /**
-     * @param CharSequence $s
+     * @todo list:need to fix the CharSequence
+     * @param string|CharSequence $s
      * @return bool;
      */
     protected function eq_s_b(CharSequence $s)

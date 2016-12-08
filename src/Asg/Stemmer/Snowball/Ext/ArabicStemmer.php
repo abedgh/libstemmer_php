@@ -741,11 +741,887 @@ class ArabicStemmer extends SnowballStemmer
     /**
      * @return bool;
      * */
-    public function stem()
+    private function r_Prefix_Step2a()
     {
 
+        $this->I_word_len = ($this->current->length());
+        $this->bra = $this->cursor;
+        $among_var = $this->find_among(static::$a_6);
+        if ($among_var == 0) {
+            return false;
+        }
+        $this->ket = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len > 5)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 2:
+                if (!($this->I_word_len > 5)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
     }
+    /**
+     * @return bool;
+     * */
+    private function r_Prefix_Step2b()
+    {
+        $this->I_word_len = ($this->current->length());
+        {
+            $v_1 = $this->cursor;
+            do { //lab0:
+                if (!($this->eq_s('\u0641\u0627'))) {
+                    break; //lab0;
+                }
+                return false;
+            } while (false);
+            $this->cursor = $v_1;
+        }
+        {
+            $v_2 = $this->cursor;
+            do { //lab1:
+                if (!($this->eq_s('\u0648\u0627'))) {
+                    break; //lab1;
+                }
+                return false;
+            } while (false);
+            $this->cursor = $v_2;
+        }
+        $this->bra = $this->cursor;
+        $among_var = $this->find_among(static::$a_7);
+        if ($among_var == 0) {
+            return false;
+        }
+        $this->ket = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len > 3)) {
+                    return false;
+                }
+                // delete, line 407
+                $this->slice_del();
+                break;
+            case 2:
+                if (!($this->I_word_len > 3)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+private function r_Prefix_Step3a_Noun()
+{
+    $this->I_word_len = ($this->current->length());
+    $this->bra = $this->cursor;
+    $among_var = $this->find_among(static::$a_8);
+    if ($among_var == 0) {
+        return false;
+    }
+    $this->ket = $this->cursor;
+    switch ($among_var) {
+        case 0:
+            return false;
+        case 1:
+            if (!($this->I_word_len > 5)) {
+                return false;
+            }
+            $this->slice_del();
+            break;
+        case 2:
+            if (!($this->I_word_len > 4)) {
+                return false;
+            }
+            $this->slice_del();
+            break;
+    }
+    return true;
+}
+    /**
+     * @return bool;
+     * */
+    private function r_Prefix_Step3b_Noun()
+    {
+        $this->I_word_len = ($this->current->length());
+        {
+            $v_1 = $this->cursor;
+            do { // lab0:
+                if (!($this->eq_s('\u0628\u0627'))) {
+                    break; // lab0;
+                }
+                return false;
+            } while (false);
+            $this->cursor = $v_1;
+        }
 
+        $this->bra = $this->cursor;
+        $among_var = $this->find_among(static::$a_9);
+        if ($among_var == 0) {
+            return false;
+        }
+        $this->ket = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len > 3)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 2:
+                if (!($this->I_word_len > 4)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 3:
+                if (!($this->I_word_len > 4)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 4:
+                if (!($this->I_word_len > 3)) {
+                    return false;
+                }
+                $this->slice_from('\u0628');
+                break;
+            case 5:
+                if (!($this->I_word_len > 3)) {
+                    return false;
+                }
+                $this->slice_from('\u0643');
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Prefix_Step3_Verb()
+    {
+        $this->I_word_len = ($this->current->length());
+        $this->bra = $this->cursor;
+        $among_var = $this->find_among(static::$a_10);
+        if ($among_var == 0) {
+            return false;
+        }
+        $this->ket = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len > 4)) {
+                    return false;
+                }
+                $this->slice_from('\u064A');
+                break;
+            case 2:
+                if (!($this->I_word_len > 4)) {
+                    return false;
+                }
+                $this->slice_from('\u062A');
+                break;
+            case 3:
+                if (!($this->I_word_len > 4)) {
+                    return false;
+                }
+                $this->slice_from('\u0646');
+                break;
+            case 4:
+                if (!($this->I_word_len > 4)) {
+                    return false;
+                }
+                $this->slice_from('\u0623');
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Prefix_Step4_Verb()
+    {
+        $this->I_word_len = ($this->current->length());
+        $this->bra = $this->cursor;
+        $among_var = $this->find_among(static::$a_11);
+        if ($among_var == 0) {
+            return false;
+        }
+        $this->ket = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len > 4)) {
+                    return false;
+                }
+                $this->B_is_verb = true;
+                $this->B_is_noun = false;
+                $this->slice_from('\u0627\u0633\u062A');
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Noun_Step1a()
+    {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_12);
+        if ($among_var == 0) {
+            return false;
+        }
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len >= 4)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 2:
+                if (!($this->I_word_len >= 5)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 3:
+                if (!($this->I_word_len >= 6)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Noun_Step1b() {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_13);
+        if ($among_var == 0)
+        {
+            return false;
+        }
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len > 5))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Noun_Step2a() {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_14);
+        if ($among_var == 0)
+        {
+            return false;
+        }
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len > 4))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Noun_Step2b() {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_15);
+        if ($among_var == 0)
+        {
+            return false;
+        }
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len >= 5))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Noun_Step2c1() {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_16);
+        if ($among_var == 0)
+        {
+            return false;
+        }
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len >= 4))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Noun_Step2c2()
+    {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_17);
+        if ($among_var == 0) {
+            return false;
+        }
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len >= 3)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Noun_Step3()
+    {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_18);
+        if ($among_var == 0) {
+            return false;
+        }
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len >= 3)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Verb_Step1() {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_19);
+        if ($among_var == 0)
+        {
+            return false;
+        }
+
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+
+                if (!($this->I_word_len >= 4))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 2:
+
+                if (!($this->I_word_len >= 5))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 3:
+                if (!($this->I_word_len >= 6))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Verb_Step2a() {
+        $this->I_word_len = ($this->current->length());
+
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_20);
+        if ($among_var == 0)
+        {
+            return false;
+        }
+
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len >= 4))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 2:
+                if (!($this->I_word_len >= 4))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 3:
+                if (!($this->I_word_len >= 5))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 4:
+                if (!($this->I_word_len > 5))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 5:
+                if (!($this->I_word_len >= 6))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Verb_Step2b() {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_21);
+        if ($among_var == 0)
+        {
+            return false;
+        }
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len >= 5))
+                {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_Verb_Step2c()
+    {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_22);
+        if ($among_var == 0) {
+            return false;
+        }
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                if (!($this->I_word_len >= 4)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 2:
+                if (!($this->I_word_len >= 6)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    private function r_Suffix_All_alef_maqsura()
+    {
+        $this->I_word_len = ($this->current->length());
+        $this->ket = $this->cursor;
+        $among_var = $this->find_among_b(static::$a_23);
+        if ($among_var == 0) {
+            return false;
+        }
+        $this->bra = $this->cursor;
+        switch ($among_var) {
+            case 0:
+                return false;
+            case 1:
+                $this->slice_from('\u064A');
+                break;
+        }
+        return true;
+    }
+    /**
+     * @return bool;
+     * */
+    public function stem()
+    {
+        $this->B_is_noun = true;
+        $this->B_is_verb = true;
+        $this->B_is_defined = false;
+
+        $v_1 = $this->cursor;
+        do { //lab0:
+            if (!$this->r_Checks1()) {
+                break;// lab0;
+            }
+        } while (false);
+        $this->cursor = $v_1;
+        $this->limit_backward = $this->cursor;
+        $this->cursor = $this->limit;
+        $v_2 = $this->limit - $this->cursor;
+        do { //lab1:
+            if (!$this->r_Checks2()) {
+                break; //lab1;
+            }
+        } while (false);
+        $this->cursor = $this->limit - $v_2;
+        $this->cursor = $this->limit_backward;
+        $v_3 = $this->cursor;
+        do { //lab2:
+            if (!$this->r_Normalize_pre()) {
+                break; //lab2;
+            }
+        } while (false);
+        $this->cursor = $v_3;
+        $this->limit_backward = $this->cursor;
+        $this->cursor = $this->limit;
+        $v_4 = $this->limit - $this->cursor;
+        do { //  lab3:
+            do { //lab4:
+                $v_5 = $this->limit - $this->cursor;
+                do { //lab5:
+                    if (!($this->B_is_verb)) {
+                        break; //lab5;
+                    }
+                    do { //lab6:
+                        $v_6 = $this->limit - $this->cursor;
+                        do { // lab7:
+                            {
+                                $v_7 = 1;
+                                while (true) { //replab8:
+                                    $v_8 = $this->limit - $this->cursor;
+                                    do { //lab9:
+                                        if (!$this->r_Suffix_Verb_Step1()) {
+                                            break;// lab9;
+                                        }
+                                        $v_7--;
+                                        continue; //replab8;
+                                    } while (false);
+                                    $this->cursor = $this->limit - $v_8;
+                                    break;// replab8;
+                                }
+                                if ($v_7 > 0) {
+                                    break; // lab7;
+                                }
+                            }
+                            do { //lab10:
+                                $v_9 = $this->limit - $this->cursor;
+                                do { //lab11:
+                                    if (!$this->r_Suffix_Verb_Step2a()) {
+                                        break; // lab11;
+                                    }
+                                    break; // lab10;
+                                } while (false);
+                                $this->cursor = $this->limit - $v_9;
+                                do { //lab12:
+                                    if (!$this->r_Suffix_Verb_Step2c()) {
+                                        break; //lab12;
+                                    }
+                                    break; // lab10;
+                                } while (false);
+                                $this->cursor = $this->limit - $v_9;
+                                if ($this->cursor <= $this->limit_backward) {
+                                    break; //lab7;
+                                }
+                                $this->cursor--;
+                            } while (false);
+                            break; // lab6;
+                        } while (false);
+                        $this->cursor = $this->limit - $v_6;
+
+                        do { //lab13:
+                            if (!$this->r_Suffix_Verb_Step2b()) {
+                                break; //lab13;
+                            }
+                            break; // lab6;
+                        } while (false);
+                        $this->cursor = $this->limit - $v_6;
+                        if (!$this->r_Suffix_Verb_Step2a()) {
+                            break; // lab5;
+                        }
+                    } while (false);
+                    break; // lab4;
+                } while (false);
+                $this->cursor = $this->limit - $v_5;
+                do { //lab14:
+                    if (!($this->B_is_noun)) {
+                        break; // lab14;
+                    }
+                    $v_10 = $this->limit - $this->cursor;
+                    do { //lab15:
+                        do { //lab16:
+                            $v_11 = $this->limit - $this->cursor;
+                            do { // lab17:
+                                if (!$this->r_Suffix_Noun_Step2c2()) {
+                                    break;// lab17;
+                                }
+                                break; // lab16;
+                            } while (false);
+                            $this->cursor = $this->limit - $v_11;
+                            do { //lab18:
+                                do { // lab19:
+                                    if (!($this->B_is_defined)) {
+                                        break;// lab19;
+                                    }
+                                    break;// lab18;
+                                } while (false);
+                                if (!$this->r_Suffix_Noun_Step1a()) {
+                                    break; // lab18;
+                                }
+                                do { // lab20:
+                                    $v_13 = $this->limit - $this->cursor;
+                                    do { // lab21:
+                                        if (!$this->r_Suffix_Noun_Step2a()) {
+                                            break; // lab21;
+                                        }
+                                        break;// lab20;
+                                    } while (false);
+                                    $this->cursor = $this->limit - $v_13;
+                                    do { //lab22:
+                                        if (!$this->r_Suffix_Noun_Step2b()) {
+                                            break; //lab22;
+                                        }
+                                        break; //lab20;
+                                    } while (false);
+                                    $this->cursor = $this->limit - $v_13;
+                                    do { // lab23:
+                                        if (!$this->r_Suffix_Noun_Step2c1()) {
+                                            break; // lab23;
+                                        }
+                                        break;// lab20;
+                                    } while (false);
+                                    $this->cursor = $this->limit - $v_13;
+                                    if ($this->cursor <= $this->limit_backward) {
+                                        break; //lab18;
+                                    }
+                                    $this->cursor--;
+                                } while (false);
+                                break; //lab16;
+                            } while (false);
+                            $this->cursor = $this->limit - $v_11;
+                            do { //lab24:
+                                if (!$this->r_Suffix_Noun_Step1b()) {
+                                    break; //lab24;
+                                }
+                                do { //lab25:
+                                    $v_14 = $this->limit - $this->cursor;
+                                    do { //lab26:
+                                        if (!$this->r_Suffix_Noun_Step2a()) {
+                                            break;// lab26;
+                                        }
+                                        break;// lab25;
+                                    } while (false);
+                                    $this->cursor = $this->limit - $v_14;
+                                    do { //lab27:
+                                        if (!$this->r_Suffix_Noun_Step2b()) {
+                                            break;// lab27;
+                                        }
+                                        break;// lab25;
+                                    } while (false);
+                                    $this->cursor = $this->limit - $v_14;
+                                    if (!$this->r_Suffix_Noun_Step2c1()) {
+                                        break; //lab24;
+                                    }
+                                } while (false);
+                                break; //lab16;
+                            } while (false);
+                            $this->cursor = $this->limit - $v_11;
+                            do { //lab28:
+                                do { //lab29:
+                                    if (!($this->B_is_defined)) {
+                                        break; //lab29;
+                                    }
+                                    break; //lab28;
+                                } while (false);
+                                if (!$this->r_Suffix_Noun_Step2a()) {
+                                    break; //lab28;
+                                }
+                                break; //lab16;
+                            } while (false);
+                            $this->cursor = $this->limit - $v_11;
+                            if (!$this->r_Suffix_Noun_Step2b()) {
+                                $this->cursor = $this->limit - $v_10;
+                                break; // lab15;
+                            }
+                        } while (false);
+                    } while (false);
+                    if (!$this->r_Suffix_Noun_Step3()) {
+                        break; // lab14;
+                    }
+                    break;// lab4;
+                } while (false);
+                $this->cursor = $this->limit - $v_5;
+                if (!$this->r_Suffix_All_alef_maqsura()) {
+                    break;// lab3;
+                }
+            } while (false);
+        } while (false);
+        $this->cursor = $this->limit - $v_4;
+        $this->cursor = $this->limit_backward;
+        $v_16 = $this->cursor;
+        do { // lab30:
+            $v_17 = $this->cursor;
+            do { //lab31:
+                if (!$this->r_Prefix_Step1()) {
+                    $this->cursor = $v_17;
+                    break; // lab31;
+                }
+            } while (false);
+            $v_18 = $this->cursor;
+            do { //lab32:
+                do { //lab33:
+                    $v_19 = $this->cursor;
+                    do { // lab34:
+                        if (!$this->r_Prefix_Step2a()) {
+                            break;// lab34;
+                        }
+                        break;// lab33;
+                    } while (false);
+                    $this->cursor = $v_19;
+                    if (!$this->r_Prefix_Step2b()) {
+                        $this->cursor = $v_18;
+                        break;// lab32;
+                    }
+                } while (false);
+            } while (false);
+            do { //lab35:
+                $v_20 = $this->cursor;
+                do { //lab36:
+                    if (!$this->r_Prefix_Step3a_Noun()) {
+                        break; // lab36;
+                    }
+                    break;// lab35;
+                } while (false);
+                $this->cursor = $v_20;
+                do { //lab37:
+                    if (!($this->B_is_noun)) {
+                        break;// lab37;
+                    }
+                    if (!$this->r_Prefix_Step3b_Noun()) {
+                        break;// lab37;
+                    }
+                    break;// lab35;
+                } while (false);
+                $this->cursor = $v_20;
+                if (!($this->B_is_verb)) {
+                    break;// lab30;
+                }
+                $v_21 = $this->cursor;
+                do { //lab38:
+                    if (!$this->r_Prefix_Step3_Verb()) {
+                        $this->cursor = $v_21;
+                        break;// lab38;
+                    }
+                } while (false);
+                if (!$this->r_Prefix_Step4_Verb()) {
+                    break;// lab30;
+                }
+            } while (false);
+        } while (false);
+        $this->cursor = $v_16;
+        $v_22 = $this->cursor;
+        do { //lab39:
+            if (!$this->r_Normalize_post()) {
+                break;//lab39;
+            }
+        } while (false);
+        $this->cursor = $v_22;
+        return true;
+    }
     /**
      * @param mixed $o
      * @return bool;
