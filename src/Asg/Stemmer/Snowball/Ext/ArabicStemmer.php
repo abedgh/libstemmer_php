@@ -10,6 +10,7 @@ namespace Asg\Stemmer\Snowball\Ext;
 
 use Asg\Stemmer\Snowball\Among;
 use Asg\Stemmer\Snowball\SnowballStemmer;
+use Asg\Support\String\StringBufferUTF8;
 
 class ArabicStemmer extends SnowballStemmer
 {
@@ -61,6 +62,7 @@ class ArabicStemmer extends SnowballStemmer
 
     function __construct()
     {
+        parent::__construct();
         $this->init();
     }
 
@@ -778,7 +780,7 @@ class ArabicStemmer extends SnowballStemmer
         {
             $v_1 = $this->cursor;
             do { //lab0:
-                if (!($this->eq_s('\u0641\u0627'))) {
+                if (!($this->eq_s(new StringBufferUTF8('\u0641\u0627')))) {
                     break; //lab0;
                 }
                 return false;
@@ -788,7 +790,7 @@ class ArabicStemmer extends SnowballStemmer
         {
             $v_2 = $this->cursor;
             do { //lab1:
-                if (!($this->eq_s('\u0648\u0627'))) {
+                if (!($this->eq_s(new StringBufferUTF8('\u0648\u0627')))) {
                     break; //lab1;
                 }
                 return false;
@@ -823,33 +825,33 @@ class ArabicStemmer extends SnowballStemmer
     /**
      * @return bool;
      * */
-private function r_Prefix_Step3a_Noun()
-{
-    $this->I_word_len = ($this->current->length());
-    $this->bra = $this->cursor;
-    $among_var = $this->find_among(static::$a_8);
-    if ($among_var == 0) {
-        return false;
-    }
-    $this->ket = $this->cursor;
-    switch ($among_var) {
-        case 0:
+    private function r_Prefix_Step3a_Noun()
+    {
+        $this->I_word_len = ($this->current->length());
+        $this->bra = $this->cursor;
+        $among_var = $this->find_among(static::$a_8);
+        if ($among_var == 0) {
             return false;
-        case 1:
-            if (!($this->I_word_len > 5)) {
+        }
+        $this->ket = $this->cursor;
+        switch ($among_var) {
+            case 0:
                 return false;
-            }
-            $this->slice_del();
-            break;
-        case 2:
-            if (!($this->I_word_len > 4)) {
-                return false;
-            }
-            $this->slice_del();
-            break;
+            case 1:
+                if (!($this->I_word_len > 5)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+            case 2:
+                if (!($this->I_word_len > 4)) {
+                    return false;
+                }
+                $this->slice_del();
+                break;
+        }
+        return true;
     }
-    return true;
-}
     /**
      * @return bool;
      * */
@@ -859,7 +861,7 @@ private function r_Prefix_Step3a_Noun()
         {
             $v_1 = $this->cursor;
             do { // lab0:
-                if (!($this->eq_s('\u0628\u0627'))) {
+                if (!($this->eq_s(new StringBufferUTF8('\u0628\u0627')))) {
                     break; // lab0;
                 }
                 return false;

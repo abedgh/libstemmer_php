@@ -122,6 +122,21 @@ class StringBuffer {
         }
         return $this->buffer[$idx];
     }
+
+    /**
+     * @param int $index;
+     * @return int;
+     * @throws \OutOfBoundsException
+     * */
+    public function charCodeAt($index){
+        if($index < 0 || $index > $this->length()) {
+            throw new \OutOfBoundsException("Index out of bounds.");
+        }
+        $k = mb_convert_encoding($this->buffer[$index], 'UCS-2LE', 'UTF-8');
+        $k1 = ord(substr($k, 0, 1));
+        $k2 = ord(substr($k, 1, 1));
+        return $k2 * 256 + $k1;
+    }
     /**
      * Characters are copied from this string buffer into the destination
      * array $dst. The first character to be copied is at index $src_begin;
@@ -396,7 +411,7 @@ class StringBuffer {
      * @param integer $start The beginning index, inclusive.
      * @param integer $end The ending index, exclusive.
      * @param string $str String that will replace previous contents.
-     * @throws OutOfBoundsException
+     * @throws \OutOfBoundsException
      * @return StringBuffer
      */
     public function &replace($start, $end, $str) {
